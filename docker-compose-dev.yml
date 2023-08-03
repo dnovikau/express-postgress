@@ -1,0 +1,7 @@
+version: '2.1'
+services:
+  api:
+    build: .
+    container_name: app-server
+    ports:
+      - 3001:3000
