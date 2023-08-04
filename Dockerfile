@@ -1,10 +1,10 @@
-FROM node:12.16.1-alpine
+FROM node:16.20.1-alpine
 
-WORKDIR /usr
+WORKDIR /usr/app
 
 COPY package*.json ./
 
-RUN npm install -g
+RUN npm install
 
 COPY . ./
 

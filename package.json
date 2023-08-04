@@ -3,13 +3,14 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "NODE_ENV=development nodemon ./src/index.js",
+    "start": "nodemon ./src/index.js",
     "dev": "NODE_ENV=localhost nodemon ./src/index.js",
     "inspect": "NODE_ENV=localhost node --inspect ./src/index.js",
     "eslint": "eslint **/*.js",
     "prettier:check": "prettier --check \"**/*.js\"",
     "prettier:write": "prettier --write \"**/*.js\"",
-    "test": "jest"
+    "test": "jest ./tests/products.test.js",
+    "test:debug": "node --inspect-brk jest"
   },
   "dependencies": {
     "config": "^3.3.9",

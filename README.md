@@ -7,5 +7,10 @@ To run locally:
 
 #Run in docker
 
-docker build -t <image-tag> .
-docker run -p 3001:3001 <image-tag>
+docker-compose up
+
+#Run tests
+
+docker exec -it app-server /bin/sh
+
+npm run test

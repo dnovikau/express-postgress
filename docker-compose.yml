@@ -3,13 +3,16 @@ version: '2.1'
 services:
   api:
     build: .
+    container_name: app-server
     environment:
       DB_USERNAME: postgres
       DB_PASSWORD: postgres
       DB_NAME: testdb
       DB_HOSTNAME: db
+      DB_PORT: 5532
     volumes:
-      - ./src:/usr/src
+      - ./src:/usr/app/src
+      - ./tests:/usr/app/tests
     ports:
       - 3001:3000
     depends_on:
@@ -17,11 +20,15 @@ services:
         condition: service_healthy
   db:
     image: postgres:10
+    container_name: app-database
     restart: always
     environment:
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: testdb
+      PGPORT: 5532
       ALLOW_IP_RANGE: 0.0.0.0/0
+    ports:
+      - 5532:5532
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U postgres"]
       interval: 10s

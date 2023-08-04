@@ -1,9 +1,9 @@
 const user = require("./user.js");
 const group = require("./group.js");
-const login = require('./login.js');
+const product = require("./product.js");
 
 module.exports = {
   user,
   group,
-  login,
+  product,
 };
